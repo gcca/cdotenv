@@ -1,0 +1,54 @@
+repos:
+  - repo: https://github.com/psf/black
+    rev: 25.1.0
+    hooks:
+      - id: black
+        args: [--preview, -l79]
+  - repo: https://github.com/PyCQA/isort
+    rev: 6.0.1
+    hooks:
+      - id: isort
+        args: [--profile, black, --line-length=79, --py=312]
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.2.0
+    hooks:
+      - id: flake8
+        additional_dependencies:
+          - flake8-bugbear
+          - flake8-comprehensions
+          - flake8-simplify
+          - flake8-pie
+          - flake8-print
+          - flake8-useless-assert
+          - flake8-comprehensions
+          - flake8-builtins
+          - flake8-assertive
+          - radon
+          - dlint
+        args: [--max-line-length=79, --radon-max-cc=12, --radon-show-closures, --max-doc-length=130, --ignore=E501]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: name-tests-test
+      - id: requirements-txt-fixer
+        files: ^requirements.*\.txt$
+      - id: end-of-file-fixer
+  - repo: https://github.com/PyCQA/autoflake
+    rev: v2.3.1
+    hooks:
+      - id: autoflake
+        args: [--remove-all-unused-imports, --in-place]
+        language: system
+  - repo: https://github.com/asottile/setup-cfg-fmt
+    rev: v2.8.0
+    hooks:
+    -   id: setup-cfg-fmt
+
+default_language_version:
+  python: python3.13

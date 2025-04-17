@@ -1,0 +1,23 @@
+[project]
+name = "cdotenv"
+version = "0.1.6"
+description = "Load and access environment variables with type casting"
+readme = "README.md"
+authors = [{ name = "(gcca)", email = "git@gcca.dev" }]
+license = "GPL-3.0-or-later"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/gcca/cdotenv"
+Repository = "https://github.com/gcca/cdotenv.git"
+Issues = "https://github.com/gcca/cdotenv/issues"
+
+[build-system]
+requires = ["setuptools>=78.1.0", "wheel"]
+build-backend = "setuptools.build_meta"
